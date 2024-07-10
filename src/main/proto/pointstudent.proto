@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.send.grpc_student";
+option java_outer_classname = "StudentPoint";
+
+service StudetnPoint {
+  rpc AddPoints(PointRequest) returns (PointResponse);
+  rpc SubtractPoints(PointRequest) returns (PointResponse);
+  rpc GetUsers(Empty) returns (UserList);
+}
+
+message PointRequest {
+  double id = 1;
+  double point = 2;
+}
+
+message PointResponse {
+  double id = 1;
+  double point = 2;
+  string message =3;
+}
+
+message UserList {
+  repeated Student student = 1;
+}
+
+message Student {
+  double id = 1;
+  double point = 2;
+  string message = 3;
+}
+
+message Empty {}

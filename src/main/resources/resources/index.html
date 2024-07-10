@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Points Management</title>
+</head>
+<body>
+<h1>Student Points Management</h1>
+
+<h2>Students</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Points</th>
+        <th>Message</th>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}">ID</td>
+        <td th:text="${student.point}">Points</td>
+        <td th:text="${student.message}">Message</td>
+    </tr>
+</table>
+
+<h2>Add Points</h2>
+<form action="#" th:action="@{/addPoints}" method="post">
+    <label>ID: <input type="number" name="id" /></label><br/>
+    <label>Points: <input type="number" name="point" /></label><br/>
+    <input type="submit" value="Add Points"/>
+</form>
+
+<h2>Subtract Points</h2>
+<form action="#" th:action="@{/subtractPoints}" method="post">
+    <label>ID: <input type="number" name="id" /></label><br/>
+    <label>Points: <input type="number" name="point" /></label><br/>
+    <input type="submit" value="Subtract Points"/>
+</form>
+
+</body>
+</html>
